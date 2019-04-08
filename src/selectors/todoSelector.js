@@ -4,7 +4,7 @@ import { FILTERS } from "../constants";
 const todosSelector = state => state.todos;
 const filterSelector = state => state.filterTodo;
 
-export const getVisibleTodos = createSelector(
+export const selectVisibleTodos = createSelector(
   [todosSelector, filterSelector],
   (todos, filter) => {
     switch (filter) {

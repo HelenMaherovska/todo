@@ -1,41 +1,40 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { render, fireEvent } from "react-testing-library";
+import "jest-dom/extend-expect";
 import { AddTodo } from "./AddTodo";
 
 describe("AddTodo", () => {
   const text = "Learn unit testing";
   const mockAddTodo = jest.fn();
-  const props = { todo: { text }, addTodo: mockAddTodo };
-  const addTodo = shallow(<AddTodo {...props} />);
+
+  const { container } = render(<AddTodo addTodo={mockAddTodo} />);
 
   it("renders correctly", () => {
-    expect(addTodo).toMatchSnapshot();
-  });
-  it("should have the `Add Todo` button", () => {
-    expect(addTodo.find(".btn-success").text()).toEqual("Add Todo");
+    expect(container).toMatchSnapshot();
   });
 
-  it("initilizes an inputValue in `state`", () => {
-    expect(addTodo.state()).toEqual({ inputValue: "" });
+  describe("Initial state", () => {
+    it("should have the `Add Todo` button", () => {
+      expect(container.querySelector(".btn-success").textContent).toBe(
+        "Add Todo"
+      );
+    });
   });
 
   describe("before typing into the add todo input", () => {
-    const inputValue = "Learn unit testing";
+    const inputVal = container.querySelector("input");
 
-    beforeEach(() => {
-      addTodo
-        .find(".form-control")
-        .simulate("change", { target: { value: inputValue } });
-    });
+    fireEvent.change(inputVal, { target: { value: text } });
 
-    it("updates the inputValue in `state`", () => {
-      expect(addTodo.state().inputValue).toEqual(inputValue);
+    it("updates the inputValue state", () => {
+      expect(container.querySelector("input")).toHaveAttribute("value", text);
     });
   });
 
   describe("when clicking the `Add Todo` button", () => {
     beforeEach(() => {
-      addTodo.find(".btn-success").simulate("click");
+      const btn = container.querySelector(".btn-success");
+      fireEvent.click(btn);
     });
 
     it("successfully calls the onClick handler", () => {
@@ -48,8 +47,8 @@ describe("AddTodo", () => {
   });
 
   describe("after clicking the `Add Todo` button", () => {
-    it("inputValue in `state` should be empty", () => {
-      expect(addTodo.state()).toEqual({ inputValue: "" });
+    it("inputValue in state should be empty", () => {
+      expect(container.querySelector("input")).toHaveAttribute("value", "");
     });
   });
 });

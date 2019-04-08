@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import Row from "./Row/Row";
+import EditRow from "./EditRow/EditRow";
 import "./TodoItemRow.css";
 
 class TodoItemRow extends Component {
@@ -8,17 +10,18 @@ class TodoItemRow extends Component {
     this.state = {
       isEditing: false
     };
-    this.onToggleEdit = this.onToggleEdit.bind(this);
-    this.onEditTodo = this.onEditTodo.bind(this);
   }
+  setRef = input => {
+    this.editInputRef = input;
+  };
 
-  onToggleEdit() {
+  onToggleEdit = () => {
     this.setState(prevState => ({
       isEditing: !prevState.isEditing
     }));
-  }
+  };
 
-  onEditTodo() {
+  onEditTodo = () => {
     const { id, completed, onUpdate } = this.props;
 
     this.setState(prevState => ({
@@ -28,76 +31,26 @@ class TodoItemRow extends Component {
     const data = {
       id,
       completed,
-      text: this.editInput.value
+      text: this.editInputRef.value
     };
 
     onUpdate(data);
-  }
+  };
 
   render() {
-    const { onClick, onDelete, text, completed, date, id } = this.props;
     const { isEditing } = this.state;
 
     let todoItem = isEditing ? (
-      <tr>
-        <td>
-          <input
-            defaultValue={text}
-            type="text"
-            ref={editInput => (this.editInput = editInput)}
-            className="form-control todo-text"
-          />
-        </td>
-        <td />
-        <td>
-          <button
-            onClick={() => this.onEditTodo(id)}
-            type="button"
-            className="btn btn-success mr-2"
-          >
-            Save
-          </button>
-          <button
-            onClick={this.onToggleEdit}
-            type="button"
-            className="btn btn-danger mr-2"
-          >
-            Cancel
-          </button>
-        </td>
-      </tr>
+      <EditRow
+        setRef={this.setRef}
+        onEditTodo={this.onEditTodo}
+        onToggleEdit={this.onToggleEdit}
+        {...this.props}
+      />
     ) : (
-      <tr>
-        <td
-          onClick={() => onClick(id)}
-          className={"todo-text " + (completed ? "completed" : "")}
-        >
-          {text}
-        </td>
-        <td
-          onClick={() => onClick(id)}
-          className={"todo-text " + (completed ? "completed" : "")}
-        >
-          {date}
-        </td>
-        <td>
-          <button
-            onClick={this.onToggleEdit}
-            type="button"
-            className="btn btn-info mr-2"
-          >
-            Edit
-          </button>
-          <button
-            onClick={() => onDelete(id)}
-            type="button"
-            className="btn btn-danger"
-          >
-            Delete
-          </button>
-        </td>
-      </tr>
+      <Row onToggleEdit={this.onToggleEdit} {...this.props} />
     );
+
     return todoItem;
   }
 }

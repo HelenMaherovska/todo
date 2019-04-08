@@ -1,32 +1,38 @@
-import moment from "moment";
-import uuid from 'uuid';
-import * as actionTypes from "./types";
+import { format } from "date-fns";
+import uuid from "uuid";
+import {
+  ADD_TODO,
+  TOGGLE_TODO,
+  UPDATE_TODO,
+  DELETE_TODO,
+  FILTER_TODO
+} from "./types";
 
 export const addTodo = text => ({
-  type: actionTypes.ADD_TODO,
+  type: ADD_TODO,
   id: uuid.v4(),
   complete: false,
-  date: moment().format("MM/DD/YYYY HH:mm:ss"),
+  date: format(new Date(), "MM/DD/YYYY HH:mm:ss"),
   text
 });
 
 export const toggleTodo = id => ({
-  type: actionTypes.TOGGLE_TODO,
+  type: TOGGLE_TODO,
   id
 });
 
 export const deleteTodo = id => ({
-  type: actionTypes.DELETE_TODO,
+  type: DELETE_TODO,
   id
 });
 
 export const updateTodo = todo => ({
-  type: actionTypes.UPDATE_TODO,
-  date: moment().format("MM/DD/YYYY HH:mm:ss"),
+  type: UPDATE_TODO,
+  date: format(new Date(), "MM/DD/YYYY HH:mm:ss"),
   todo
 });
 
 export const filterTodo = filter => ({
-  type: actionTypes.FILTER_TODO,
+  type: FILTER_TODO,
   filter
 });

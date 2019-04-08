@@ -3,8 +3,8 @@ import { shallow, mount } from "enzyme";
 import { TodoList } from "./TodoList";
 import TodoItemRow from "../TodoItemRow/TodoItemRow";
 
-jest.mock("moment", () => () => ({ format: () => "06/18/2018 05:49:28" }));
-jest.mock("moment", () => () => ({ format: () => "02/10/2018 12:14:19" }));
+jest.mock("date-fns", () => () => ({ format: () => "06/18/2018 05:49:28" }));
+jest.mock("date-fns", () => () => ({ format: () => "02/10/2018 12:14:19" }));
 
 describe("TodoList", () => {
   const todos = [

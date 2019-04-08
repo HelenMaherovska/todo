@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import TodoItemRow from "../TodoItemRow/TodoItemRow";
 import { toggleTodo, deleteTodo, updateTodo } from "../../actions/todoActions";
-import { getVisibleTodos } from "../../selectors/todoSelector";
+import { selectVisibleTodos } from "../../selectors/todoSelector";
 
 export const TodoList = props => {
   const { todos, toggleTodo, deleteTodo, updateTodo } = props;
@@ -50,12 +50,8 @@ TodoList.propTypes = {
   updateTodo: PropTypes.func.isRequired
 };
 
-TodoList.defaultProps = {
-  todos: []
-};
-
 const mapStateToProps = state => ({
-  todos: getVisibleTodos(state)
+  todos: selectVisibleTodos(state)
 });
 
 const mapDispatchToProps = {

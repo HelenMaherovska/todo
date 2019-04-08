@@ -1,4 +1,4 @@
-import { getVisibleTodos } from "./todoSelector";
+import { selectVisibleTodos } from "./todoSelector";
 import { FILTERS } from "../constants";
 
 const todos = [
@@ -22,13 +22,13 @@ const todos = [
 describe("Visible Todos Selector", () => {
   describe("selectAllTodos", () => {
     it("should return all todos", () => {
-      const selected = getVisibleTodos.resultFunc(todos, FILTERS.ALL);
+      const selected = selectVisibleTodos.resultFunc(todos, FILTERS.ALL);
       expect(selected).toEqual(todos);
     });
   });
   describe("selectActiveTodos", () => {
     it("should return active todos", () => {
-      const selected = getVisibleTodos.resultFunc(todos, FILTERS.ACTIVE);
+      const selected = selectVisibleTodos.resultFunc(todos, FILTERS.ACTIVE);
       expect(selected).toEqual([
         {
           id: 0,
@@ -40,7 +40,7 @@ describe("Visible Todos Selector", () => {
   });
   describe("selectCompletedTodos", () => {
     it("should return active todos", () => {
-      const selected = getVisibleTodos.resultFunc(todos, FILTERS.COMPLETE);
+      const selected = selectVisibleTodos.resultFunc(todos, FILTERS.COMPLETE);
       expect(selected).toEqual([
         {
           id: 1,
@@ -53,6 +53,12 @@ describe("Visible Todos Selector", () => {
           completed: true
         }
       ]);
+    });
+  });
+  describe("default todos", () => {
+    it("should return all todos", () => {
+      const selected = selectVisibleTodos.resultFunc(todos);
+      expect(selected).toEqual(todos);
     });
   });
 });

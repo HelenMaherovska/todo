@@ -1,5 +1,10 @@
 import todoReducer from "./todoReducer";
-import * as actionTypes from "../actions/types";
+import {
+  ADD_TODO,
+  DELETE_TODO,
+  TOGGLE_TODO,
+  UPDATE_TODO
+} from "../actions/types";
 
 describe("todos reducer", () => {
   it("should return the initial state", () => {
@@ -9,7 +14,7 @@ describe("todos reducer", () => {
   it("should handle ADD_TODO", () => {
     expect(
       todoReducer([], {
-        type: actionTypes.ADD_TODO,
+        type: ADD_TODO,
         text: "Run the tests",
         id: 0
       })
@@ -31,7 +36,7 @@ describe("todos reducer", () => {
           }
         ],
         {
-          type: actionTypes.ADD_TODO,
+          type: ADD_TODO,
           text: "Use Redux",
           id: 1
         }
@@ -64,7 +69,7 @@ describe("todos reducer", () => {
           }
         ],
         {
-          type: actionTypes.ADD_TODO,
+          type: ADD_TODO,
           text: "Fix the tests",
           id: 2
         }
@@ -104,7 +109,7 @@ describe("todos reducer", () => {
           }
         ],
         {
-          type: actionTypes.TOGGLE_TODO,
+          type: TOGGLE_TODO,
           id: 1
         }
       )
@@ -138,7 +143,7 @@ describe("todos reducer", () => {
           }
         ],
         {
-          type: actionTypes.DELETE_TODO,
+          type: DELETE_TODO,
           id: 1
         }
       )
@@ -150,31 +155,65 @@ describe("todos reducer", () => {
       }
     ]);
   });
-  it("should handle UPDATE_TODO", () => {
-    expect(
-      todoReducer(
-        [
+
+  describe("should handle UPDATE_TODO", () => {
+    describe("given a proper todo id", () => {
+      it("returns updated todo", () => {
+        expect(
+          todoReducer(
+            [
+              {
+                text: "Use Redux",
+                completed: false,
+                id: 0
+              }
+            ],
+            {
+              type: UPDATE_TODO,
+              todo: {
+                id: 0,
+                completed: false,
+                text: "Updated todo"
+              }
+            }
+          )
+        ).toEqual([
+          {
+            text: "Updated todo",
+            completed: false,
+            id: 0
+          }
+        ]);
+      });
+    });
+    describe("given a wrong todo id", () => {
+      it("not returns updated todo", () => {
+        expect(
+          todoReducer(
+            [
+              {
+                text: "Use Redux",
+                completed: false,
+                id: 0
+              }
+            ],
+            {
+              type: UPDATE_TODO,
+              todo: {
+                id: 1,
+                completed: false,
+                text: "Updated todo"
+              }
+            }
+          )
+        ).toEqual([
           {
             text: "Use Redux",
             completed: false,
             id: 0
           }
-        ],
-        {
-          type: actionTypes.UPDATE_TODO,
-          todo: {
-            id: 0,
-            completed: false,
-            text: "Updated todo"
-          }
-        }
-      )
-    ).toEqual([
-      {
-        text: "Updated todo",
-        completed: false,
-        id: 0
-      }
-    ]);
+        ]);
+      });
+    });
   });
 });
