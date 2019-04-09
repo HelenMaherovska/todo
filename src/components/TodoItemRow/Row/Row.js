@@ -1,20 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
 const Row = props => {
   const { id, text, completed, date, onToggleEdit, onClick, onDelete } = props;
+  let todoTextClass = classNames({ "todo-text": true, completed });
   return (
     <tr>
-      <td
-        onClick={() => onClick(id)}
-        className={"todo-text " + (completed ? "completed" : "")}
-      >
+      <td onClick={() => onClick(id)} className={todoTextClass}>
         {text}
       </td>
-      <td
-        onClick={() => onClick(id)}
-        className={"todo-text " + (completed ? "completed" : "")}
-      >
+      <td onClick={() => onClick(id)} className={todoTextClass}>
         {date}
       </td>
       <td>

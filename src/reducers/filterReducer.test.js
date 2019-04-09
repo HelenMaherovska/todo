@@ -1,5 +1,5 @@
-import filterReducer from "./filterReducer";
-import { FILTER_TODO } from "../actions/types";
+import filterReducer from "reducers/filterReducer";
+import { FILTER_TODO } from "actions/types";
 
 describe("filter reducer", () => {
   it("should handle initial state", () => {

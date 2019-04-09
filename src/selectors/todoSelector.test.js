@@ -1,5 +1,5 @@
-import { selectVisibleTodos } from "./todoSelector";
-import { FILTERS } from "../constants";
+import { selectVisibleTodos } from "selectors/todoSelector";
+import { FILTERS } from "constants.js";
 
 const todos = [
   {

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Row from "./Row/Row";
-import EditRow from "./EditRow/EditRow";
-import "./TodoItemRow.css";
+import Row from "components/TodoItemRow/Row/Row";
+import EditRow from "components/TodoItemRow/EditRow/EditRow";
+import "components/TodoItemRow/TodoItemRow.css";
 
 class TodoItemRow extends Component {
   constructor(props) {

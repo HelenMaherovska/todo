@@ -5,14 +5,14 @@ import {
   DELETE_TODO,
   FILTER_TODO,
   UPDATE_TODO
-} from "./types";
+} from "actions/types.js";
 import {
   addTodo,
   toggleTodo,
   deleteTodo,
   filterTodo,
   updateTodo
-} from "./todoActions";
+} from "actions/todoActions";
 
 jest.mock("uuid", () => ({ v4: jest.fn(() => 0) }));
 

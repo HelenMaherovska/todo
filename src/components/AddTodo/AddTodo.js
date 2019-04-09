@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import { connect } from "react-redux";
 
-import { addTodo } from "../../actions/todoActions";
-import "./AddTodo.css";
+import { addTodo } from "actions/todoActions";
+import "components/AddTodo/AddTodo.css";
 
 export const AddTodo = props => {
   const [inputValue, setInputValue] = useState("");

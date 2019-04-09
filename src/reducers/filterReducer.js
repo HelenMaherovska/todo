@@ -1,4 +1,4 @@
-import { FILTERS } from "../constants";
+import { FILTERS } from "constants.js";
 
 const initState = FILTERS.ALL;
 

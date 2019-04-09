@@ -1,10 +1,10 @@
-import todoReducer from "./todoReducer";
+import todoReducer from "reducers/todoReducer";
 import {
   ADD_TODO,
   DELETE_TODO,
   TOGGLE_TODO,
   UPDATE_TODO
-} from "../actions/types";
+} from "actions/types.js";
 
 describe("todos reducer", () => {
   it("should return the initial state", () => {

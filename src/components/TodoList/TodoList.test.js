@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import { TodoList } from "./TodoList";
-import TodoItemRow from "../TodoItemRow/TodoItemRow";
+import { TodoList } from "components/TodoList/TodoList";
+import TodoItemRow from "components/TodoItemRow/TodoItemRow";
 
 jest.mock("date-fns", () => () => ({ format: () => "06/18/2018 05:49:28" }));
 jest.mock("date-fns", () => () => ({ format: () => "02/10/2018 12:14:19" }));

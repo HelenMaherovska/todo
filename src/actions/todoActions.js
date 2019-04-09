@@ -6,7 +6,7 @@ import {
   UPDATE_TODO,
   DELETE_TODO,
   FILTER_TODO
-} from "./types";
+} from "actions/types.js";
 
 export const addTodo = text => ({
   type: ADD_TODO,

@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "react-testing-library";
 import "jest-dom/extend-expect";
-import { AddTodo } from "./AddTodo";
+import { AddTodo } from "components/AddTodo/AddTodo";
 
 describe("AddTodo", () => {
   const text = "Learn unit testing";

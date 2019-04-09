@@ -28,13 +28,13 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <td
-          className="todo-text "
+          className="todo-text"
           onClick={[Function]}
         >
           Learn unit testing
         </td>,
         <td
-          className="todo-text "
+          className="todo-text"
           onClick={[Function]}
         >
           06/18/2018 05:49:28
@@ -65,7 +65,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Learn unit testing",
-          "className": "todo-text ",
+          "className": "todo-text",
           "onClick": [Function],
         },
         "ref": null,
@@ -78,7 +78,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "06/18/2018 05:49:28",
-          "className": "todo-text ",
+          "className": "todo-text",
           "onClick": [Function],
         },
         "ref": null,
@@ -151,13 +151,13 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <td
-            className="todo-text "
+            className="todo-text"
             onClick={[Function]}
           >
             Learn unit testing
           </td>,
           <td
-            className="todo-text "
+            className="todo-text"
             onClick={[Function]}
           >
             06/18/2018 05:49:28
@@ -188,7 +188,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Learn unit testing",
-            "className": "todo-text ",
+            "className": "todo-text",
             "onClick": [Function],
           },
           "ref": null,
@@ -201,7 +201,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "06/18/2018 05:49:28",
-            "className": "todo-text ",
+            "className": "todo-text",
             "onClick": [Function],
           },
           "ref": null,

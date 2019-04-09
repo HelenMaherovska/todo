@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import EditRow from "./EditRow";
+import EditRow from "components/TodoItemRow/EditRow/EditRow";
 
 describe("editRow", () => {
   const id = "12345";

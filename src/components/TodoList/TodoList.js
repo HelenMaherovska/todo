@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import TodoItemRow from "../TodoItemRow/TodoItemRow";
-import { toggleTodo, deleteTodo, updateTodo } from "../../actions/todoActions";
-import { selectVisibleTodos } from "../../selectors/todoSelector";
+import TodoItemRow from "components/TodoItemRow/TodoItemRow";
+import { toggleTodo, deleteTodo, updateTodo } from "actions/todoActions";
+import { selectVisibleTodos } from "selectors/todoSelector";
 
 export const TodoList = props => {
   const { todos, toggleTodo, deleteTodo, updateTodo } = props;

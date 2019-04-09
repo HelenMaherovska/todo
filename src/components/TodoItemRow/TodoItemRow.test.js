@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
-import TodoItemRow from "./TodoItemRow";
-import Row from "./Row/Row";
-import EditRow from "./EditRow/EditRow";
+import TodoItemRow from "components/TodoItemRow/TodoItemRow";
+import Row from "components/TodoItemRow/Row/Row";
+import EditRow from "components/TodoItemRow/EditRow/EditRow";
 
 jest.mock("date-fns", () => () => ({ format: () => "06/18/2018 05:49:28" }));
 

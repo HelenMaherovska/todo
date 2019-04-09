@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import { FILTERS } from "../constants";
+import { FILTERS } from "constants.js";
 
 const todosSelector = state => state.todos;
 const filterSelector = state => state.filterTodo;

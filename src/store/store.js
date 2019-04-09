@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
-import persistData from "../middleware/persistData";
-import rootReducer from "../reducers/index";
+import persistData from "middleware/persistData";
+import rootReducer from "reducers/index";
 
 let initialState = {};
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { FilterBtn } from "./FilterBtn";
+import { FilterBtn } from "components/FilterBtn/FilterBtn";
 
 describe("FilterBtn", () => {
   const mockFilterTodo = jest.fn();

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { filterTodo } from "../../actions/todoActions";
+import { filterTodo } from "actions/todoActions";
 
 export const FilterBtn = props => {
   const { children, filterTodo, active } = props;

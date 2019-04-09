@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
-import store from "../../store/store";
+import store from "store/store";
 
-import AddTodo from "../AddTodo/AddTodo";
-import TodoList from "../TodoList/TodoList";
-import Footer from "../Footer/Footer";
-import "./App.css";
+import AddTodo from "components/AddTodo/AddTodo";
+import TodoList from "components/TodoList/TodoList";
+import Footer from "components/Footer/Footer";
+import "components/App/App.css";
 
 class App extends Component {
   render() {
