@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddTodo renders correctly 1`] = `
+<div>
+  <div
+    class="add-todo-wrapper input-group d-flex pr-0 pl-0 justify-content-between"
+  >
+    <input
+      class="form-control mr-4"
+      type="text"
+      value="Learn unit testing"
+    />
+    <button
+      class="btn btn-success"
+      type="submit"
+    >
+      Add Todo
+    </button>
+  </div>
+</div>
+`;
